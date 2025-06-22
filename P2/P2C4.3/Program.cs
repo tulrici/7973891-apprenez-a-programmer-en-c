@@ -1,14 +1,27 @@
 ﻿using P2C4._3;
 
-List<int> temperaturesEnregistreDegresCelcius = new List<int>();
-
-// remplir la liste à partir des valeurs fournies comme arguments en ligne de commande
-foreach (string stringRepresentationTemperature in args)
+try
 {
-    int temperature = int.Parse(stringRepresentationTemperature);
-    temperaturesEnregistreDegresCelcius.Add(temperature);
-}
+    List<int> temperaturesEnregistreDegresCelcius = new List<int>();
 
-// Calculer et afficher la température moyenne
-int moyenneTemperature = MathSimple.CalculMoyenne(temperaturesEnregistreDegresCelcius);
-Console.WriteLine("La température moyenne est " + moyenneTemperature);
+    foreach (string stringRepresentationTemperature in args)
+    {
+        int temperature = int.Parse(stringRepresentationTemperature);
+        temperaturesEnregistreDegresCelcius.Add(temperature);
+    }
+
+    int moyenneTemperature = MathSimple.CalculMoyenne(temperaturesEnregistreDegresCelcius);
+    Console.WriteLine("La température moyenne est " + moyenneTemperature);
+}
+catch (FormatException)
+{
+    Console.WriteLine("C'est pas le bon format.");
+}
+catch (DivideByZeroException)
+{
+    Console.WriteLine("Ah non ! On ne divise pas par zéro ici.");
+}
+catch (Exception)
+{
+    Console.WriteLine("Mais enfin... Faut mettre des entiers numériques en arguments !");
+}

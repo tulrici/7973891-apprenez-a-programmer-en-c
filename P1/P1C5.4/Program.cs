@@ -6,10 +6,10 @@ mois.Add("Septembre", 9);
 mois.Add("Mars", 5);
 
 // TODO : Corriger la valeur de Mars avec (3)
-
+mois["Mars"] = 3;
 
 // TODO : Retirer Juin
-
+mois.Remove("Juin");
 
 // Afficher le contenu du dictionnaire
 Console.WriteLine("La liste des mois est :");
